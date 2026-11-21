@@ -1,0 +1,19 @@
+{
+  "collection": "EthersAir Genesis",
+  "symbol": "EAG",
+  "chainId": 8453,
+  "network": "Base",
+  "supply": 656,
+  "contract": "0x4F846D7cE7d3AD31210e5cF356E2a771B4fedC9F",
+  "owner": "0x855f66c799c8d3B24E510a7161374A0daF40d2b3",
+  "imageCid": "QmeYnShYWtmKTnJdXM7XP77giehaZk2fHTuagZdjRcEzGP",
+  "metadataCid": "bafybeihasrhtxg3csuywupnxrelfre7rp6mrnq4xc3lee4rpvxq7oqll4y",
+  "baseUrl": "https://airethers.xyz",
+  "pricing": {
+    "ends": [50, 200, 600],
+    "prices": [0.05, 0.03, 0.015, 0.008],
+    "note": "Snapshot of tier boundaries and prices read from the contract; the page replaces it with live values when the RPC answers."
+  },
+  "gateways": ["https://ipfs.filebase.io/ipfs/", "https://ipfs.io/ipfs/", "https://dweb.link/ipfs/"],
+  "rpcs": ["https://base.drpc.org", "https://base-rpc.publicnode.com", "https://1rpc.io/base"]
+}
