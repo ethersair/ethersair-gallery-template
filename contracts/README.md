@@ -66,3 +66,29 @@ copy or artwork changes.
   accidentally send more than the tier price.
 - Royalty is capped at 1000 bps in both the constructor and `setRoyalty`.
 - Ownership transfer should go to a multisig; the live collection uses a 2-of-3 Safe.
+
+## `EthersAirGenesisStaking.sol`
+
+Optional, independent utility layer. Holders lock an edition, accrue points over time, claim
+them, and unstake whenever they want. No reward token is minted, nothing inflates, and the
+NFT contract stays untouched.
+
+```solidity
+stake(uint256 tokenId)      // transferFrom user -> contract, starts the clock
+earned(uint256 tokenId)     // view: points accrued since last settlement
+claim(uint256 tokenId)      // credits points[user], restarts the clock
+unstake(uint256 tokenId)    // settles, then returns the NFT
+```
+
+State: `points[address]`, `stakes[tokenId]`, `stakedBy[address]`, `totalStaked`, `pointsPerDay`
+(owner-adjustable, default 10e18).
+
+Because points are just balances, they can later gate an allowlist, an airdrop, or a
+merch discount without changing the NFT contract:
+
+```solidity
+require(staking.points(msg.sender) >= 100e18, "not enough points");
+```
+
+Deploy order: NFT contract first, then staking with the NFT address in the constructor.
+Holders must call `setApprovalForAll(staking, true)` once before staking.
