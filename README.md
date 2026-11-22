@@ -49,6 +49,11 @@ const MINT_SELECTOR = "0xa0712d68"; // mint(uint256)
 const SEL = { priceOf: "0xb9186d7d", mintOpen: "0x24bbd049", ... };
 ```
 
+A ready-to-deploy contract that matches this site is included: [`contracts/EthersAirGenesisV2.sol`](contracts/EthersAirGenesisV2.sol)
+— ERC-721 with tiered pricing, ERC-2981 royalties, `contractURI()` so marketplaces read the
+collection metadata from the chain, explicit `.json` token URIs, and ERC-4906 refresh events.
+See [`contracts/README.md`](contracts/README.md) for the deploy and verify recipe.
+
 The site reads `totalMinted()`, `mintOpen()`, `tier1End/2End/3End` and `priceOf(uint256)`
 straight from the chain, racing three public RPCs so a slow provider cannot block the page.
 Prices fall back to `data/config.json → pricing` while the RPC is quiet.
