@@ -14,6 +14,8 @@ collection on Base, so every piece here has run in production.
 | Gallery + router | `web/app.js` | grid with search, tier filter, sort; routes `/1` … `/N` and `/nft/<id>` |
 | Token page | `web/app.js` | artwork, traits, rank, price, prev/next, mint button |
 | Wallet + mint | `web/app.js` | injected wallet, switches to Base, calls `mint(uint256)` with the on-chain price |
+| Trait rarity | `web/app.js` | rarity computed from real trait frequencies, shown per token |
+| Holder tools | `web/app.js` → `/holders` | verifies ownership on-chain, then renders a downloadable 800×1000 holder card |
 | Metadata server | `data/config.json` + build output | serves `/metadata/<id>.json` from the same domain |
 | Metadata builder | `scripts/build-metadata.mjs` | images + trait table → OpenSea-compatible ERC-721 JSON |
 | Thumbnail builder | `scripts/build-thumbs.py` | 480px WebP thumbnails so the gallery loads instantly |
